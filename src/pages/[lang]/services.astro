@@ -1,0 +1,187 @@
+---
+import { LOCALES, useTranslations, type Lang } from "@/i18n";
+import Layout from "@/layouts/Base.astro";
+const t = useTranslations(Astro.currentLocale as Lang);
+
+const locale = Astro.currentLocale as Lang;
+
+export const getStaticPaths = () =>
+  Object.keys(LOCALES).map((lang) => ({
+    params: { lang },
+  }));
+---
+
+<Layout title={t({ ja: "サービス", en: "Services", "zh-cn": "服务", ar: "خدمات" })}>
+  <section class="services">
+    <h1>
+      {
+        t({
+          ja: "サービス",
+          en: "Our Services",
+          "zh-cn": "我们的服务",
+          ar: "خدماتنا",
+        })
+      }
+    </h1>
+
+    <div class="service-list">
+      <div class="service-item">
+        <span class="material-icons-sharp">code</span>
+        <h2>
+          {
+            t({
+              ja: "ウェブ開発",
+              en: "Web Development",
+              "zh-cn": "网页开发",
+              ar: "تطوير الويب",
+            })
+          }
+        </h2>
+        <p>
+          {
+            t({
+              ja: "最新のフレームワークと技術を使用して、高性能でスケーラブルなウェブアプリケーションを構築します。",
+              en: "Building high-performance, scalable web applications using the latest frameworks and technologies.",
+              "zh-cn": "使用最新的框架和技术构建高性能、可扩展的网络应用程序。",
+              ar: "بناء تطبيقات ويب عالية الأداء وقابلة للتطوير باستخدام أحدث الأطر والتقنيات.",
+            })
+          }
+        </p>
+        <ul>
+          <li>{t({ ja: "フロントエンド開発", en: "Frontend Development", "zh-cn": "前端开发", ar: "تطوير الواجهة الأمامية" })}</li>
+          <li>{t({ ja: "バックエンド開発", en: "Backend Development", "zh-cn": "后端开发", ar: "تطوير الخلفية" })}</li>
+          <li>{t({ ja: "Eコマース", en: "E-commerce", "zh-cn": "电子商务", ar: "التجارة الإلكترونية" })}</li>
+          <li>{t({ ja: "CMS開発", en: "CMS Development", "zh-cn": "CMS开发", ar: "تطوير نظام إدارة المحتوى" })}</li>
+        </ul>
+      </div>
+
+      <div class="service-item">
+        <span class="material-icons-sharp">palette</span>
+        <h2>
+          {
+            t({
+              ja: "デザイン",
+              en: "Design",
+              "zh-cn": "设计",
+              ar: "التصميم",
+            })
+          }
+        </h2>
+        <p>
+          {
+            t({
+              ja: "ユーザー中心のアプローチで、美しく機能的なデジタル体験を創造します。",
+              en: "Creating beautiful and functional digital experiences with a user-centered approach.",
+              "zh-cn": "以用户为中心的方法创建美观实用的数字体验。",
+              ar: "إنشاء تجارب رقمية جميلة وعملية بنهج يركز على المستخدم.",
+            })
+          }
+        </p>
+        <ul>
+          <li>{t({ ja: "UI/UXデザイン", en: "UI/UX Design", "zh-cn": "UI/UX设计", ar: "تصميم واجهة المستخدم/تجربة المستخدم" })}</li>
+          <li>{t({ ja: "ブランディング", en: "Branding", "zh-cn": "品牌", ar: "العلامة التجارية" })}</li>
+          <li>{t({ ja: "モバイルデザイン", en: "Mobile Design", "zh-cn": "移动设计", ar: "تصميم الهاتف المحمول" })}</li>
+          <li>{t({ ja: "プロトタイピング", en: "Prototyping", "zh-cn": "原型设计", ar: "النماذج الأولية" })}</li>
+        </ul>
+      </div>
+
+      <div class="service-item">
+        <span class="material-icons-sharp">rocket_launch</span>
+        <h2>
+          {
+            t({
+              ja: "デジタル戦略",
+              en: "Digital Strategy",
+              "zh-cn": "数字策略",
+              ar: "الاستراتيجية الرقمية",
+            })
+          }
+        </h2>
+        <p>
+          {
+            t({
+              ja: "データに基づいた戦略で、ビジネスの成長を加速させます。",
+              en: "Accelerating business growth with data-driven strategies.",
+              "zh-cn": "通过数据驱动的策略加速业务增长。",
+              ar: "تسريع نمو الأعمال باستراتيجيات مدفوعة بالبيانات.",
+            })
+          }
+        </p>
+        <ul>
+          <li>{t({ ja: "デジタルマーケティング", en: "Digital Marketing", "zh-cn": "数字营销", ar: "التسويق الرقمي" })}</li>
+          <li>{t({ ja: "SEO最適化", en: "SEO Optimization", "zh-cn": "SEO优化", ar: "تحسين محركات البحث" })}</li>
+          <li>{t({ ja: "コンテンツ戦略", en: "Content Strategy", "zh-cn": "内容策略", ar: "استراتيجية المحتوى" })}</li>
+          <li>{t({ ja: "分析とレポート", en: "Analytics & Reporting", "zh-cn": "分析与报告", ar: "التحليلات والتقارير" })}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .services {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-block-start: var(--sp-xl);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-theme);
+    margin-block-end: var(--sp-xl);
+    text-align: center;
+  }
+
+  .service-list {
+    display: grid;
+    gap: var(--sp-xl);
+    padding-block-end: var(--sp-xl);
+  }
+
+  .service-item {
+    padding: var(--sp-l);
+    border-radius: 1em;
+    background: color-mix(in srgb, var(--color-theme) 3%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-theme) 10%, transparent);
+  }
+
+  .service-item .material-icons-sharp {
+    font-size: 3rem;
+    color: var(--color-theme);
+    display: block;
+    margin-block-end: var(--sp-m);
+  }
+
+  .service-item h2 {
+    font-size: 1.8rem;
+    color: var(--color-theme);
+    margin-block-end: var(--sp-m);
+    margin-block-start: 0;
+  }
+
+  .service-item p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-block-end: var(--sp-l);
+    opacity: 0.9;
+    margin-block-start: 0;
+  }
+
+  .service-item ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--sp-s);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .service-item li {
+    padding: var(--sp-s) var(--sp-m);
+    background: color-mix(in srgb, var(--color-theme) 8%, transparent);
+    border-radius: 0.5em;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+</style>

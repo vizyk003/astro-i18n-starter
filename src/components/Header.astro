@@ -1,13 +1,9 @@
 ---
 // Header & Navigation UI displayed on each page.
 
-import LocaleSelect from "@/components/i18n/LocaleSelect.astro";
-import { Image } from "astro:assets";
 import { useTranslations, type Lang } from "@/i18n";
 import { getRelativeLocaleUrl } from "astro:i18n";
 const t = useTranslations(Astro.currentLocale as Lang);
-
-import AstroImage from "@/assets/astro-logo.svg";
 
 const locale = Astro.currentLocale as Lang;
 
@@ -18,35 +14,32 @@ const isActive = (path: string) =>
 <header class="l-header">
   <h1 dir="ltr">
     <a href={getRelativeLocaleUrl(locale, "/")}>
-      <Image src={AstroImage} alt="Astro" />
-      i18n Starter
+      Mosaik Digital
     </a>
   </h1>
-
-  <LocaleSelect />
 
   <nav class="l-content">
     <ul>
       <li>
         <a
-          href={getRelativeLocaleUrl(locale, "/setup")}
-          class={isActive("/setup") ? "active" : null}
+          href={getRelativeLocaleUrl(locale, "/")}
+          class={isActive("/") ? "active" : null}
         >
-          {t({ ja: "設定", en: "Setup", "zh-cn": "设置", ar: "إعداد" })}
+          {t({ ja: "ホーム", en: "Home", "zh-cn": "首页", ar: "الصفحة الرئيسية" })}
         </a>
       </li>
 
       <li>
         <a
-          href={getRelativeLocaleUrl(locale, "/page")}
-          class={isActive("/page") ? "active" : null}
+          href={getRelativeLocaleUrl(locale, "/services")}
+          class={isActive("/services") ? "active" : null}
         >
           {
             t({
-              ja: "ページの追加",
-              en: "Add Page",
-              "zh-cn": "添加页面",
-              ar: "إضافة صفحة",
+              ja: "サービス",
+              en: "Services",
+              "zh-cn": "服务",
+              ar: "خدمات",
             })
           }
         </a>
@@ -54,45 +47,26 @@ const isActive = (path: string) =>
 
       <li>
         <a
-          href={getRelativeLocaleUrl(locale, "/feature")}
-          class={isActive("/feature") ? "active" : null}
+          href={getRelativeLocaleUrl(locale, "/about")}
+          class={isActive("/about") ? "active" : null}
         >
           {
             t({
-              ja: "その他の機能",
-              en: "Features",
-              "zh-cn": "特性",
-              ar: "الميزات",
+              ja: "会社概要",
+              en: "About",
+              "zh-cn": "关于",
+              ar: "معلومات عنا",
             })
           }
         </a>
       </li>
 
-      <li class="en-only">
-        <a
-          href={getRelativeLocaleUrl(locale, "/monolingual")}
-          class={isActive("/monolingual") ? "active" : null}
-        >
-          Monolingual
-        </a>
-      </li>
-
       <li>
         <a
-          href={getRelativeLocaleUrl(locale, "/blog")}
-          class={isActive("/blog") ? "active" : null}
+          href={getRelativeLocaleUrl(locale, "/contact")}
+          class={isActive("/contact") ? "active" : null}
         >
-          {t({ ja: "ブログ", en: "Blog", "zh-cn": "博客", ar: "مدونة" })}
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="https://github.com/psephopaiktes/astro-i18n-starter"
-          target="_blank"
-        >
-          GitHub
-          <span class="material-icons-sharp dir">open_in_new</span>
+          {t({ ja: "お問い合わせ", en: "Contact", "zh-cn": "联系我们", ar: "اتصل بنا" })}
         </a>
       </li>
     </ul>
@@ -113,22 +87,18 @@ const isActive = (path: string) =>
 
   h1 {
     margin-block-start: var(--sp-l);
-    margin-inline-start: -0.5em;
-    font-size: 40px;
+    font-size: 32px;
     font-family: var(--english-font);
     font-weight: 900;
     @media (width < 480px) {
-      font-size: 28px;
+      font-size: 24px;
     }
 
     a {
       display: flex;
       align-items: center;
-    }
-    img {
-      width: 6em;
-      position: relative;
-      inset: 0.1em;
+      text-decoration: none;
+      color: var(--color-theme);
     }
   }
 

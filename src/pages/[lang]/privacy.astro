@@ -1,0 +1,296 @@
+---
+import { LOCALES, useTranslations, type Lang } from "@/i18n";
+import Layout from "@/layouts/Base.astro";
+const t = useTranslations(Astro.currentLocale as Lang);
+
+const locale = Astro.currentLocale as Lang;
+
+export const getStaticPaths = () =>
+  Object.keys(LOCALES).map((lang) => ({
+    params: { lang },
+  }));
+---
+
+<Layout title={t({ ja: "プライバシーポリシー", en: "Privacy Policy", "zh-cn": "隐私政策", ar: "سياسة الخصوصية" })}>
+  <section class="privacy">
+    <h1>Privacy Policy</h1>
+
+    <div class="meta">
+      <p><strong>Effective Date:</strong> November 22, 2025</p>
+      <p><strong>Last Updated:</strong> November 22, 2025</p>
+    </div>
+
+    <div class="content">
+      <section>
+        <h2>Company Information</h2>
+        <p><strong>Mosaik Digital Korlátolt Felelősségű Társaság</strong></p>
+        <ul class="company-info">
+          <li><strong>Address:</strong> 1126 Budapest, Királyhágó utca 5/A 3. em. 1B. ajtó, Hungary</li>
+          <li><strong>Tax Number:</strong> 27491560-2-43</li>
+          <li><strong>Year of Establishment:</strong> 2021</li>
+          <li><strong>Main Activity:</strong> Computer Programming (6210)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Introduction</h2>
+        <p>
+          Welcome to Knight's Gambit, a chess application developed and operated by Mosaik Digital Kft.
+          ("we," "us," or "our"). We are committed to protecting your privacy and being transparent about
+          our data practices.
+        </p>
+        <p>
+          This Privacy Policy explains how we handle information in connection with your use of the
+          Knight's Gambit mobile application (the "App").
+        </p>
+      </section>
+
+      <section>
+        <h2>Information We Collect</h2>
+        <p class="highlight">
+          <strong>We do not collect, store, or process any personal data or user information.</strong>
+        </p>
+        <p>
+          Knight's Gambit is designed to operate entirely on your device without collecting or transmitting
+          any data to our servers or third parties. This means:
+        </p>
+        <ul>
+          <li>We do not collect your name, email address, or any other personal identifiers</li>
+          <li>We do not collect location data</li>
+          <li>We do not collect device information</li>
+          <li>We do not track your gameplay or statistics</li>
+          <li>We do not use cookies or similar tracking technologies</li>
+          <li>We do not collect any other information about you or your use of the App</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>How the App Works</h2>
+        <p>
+          All game data, including your chess games, settings, and preferences, are stored locally on your
+          device. No information leaves your device or is shared with us or any third party.
+        </p>
+      </section>
+
+      <section>
+        <h2>Third-Party Services</h2>
+        <p>
+          The App does not integrate with any third-party services, analytics platforms, or advertising
+          networks. We do not share any information with third parties because we do not collect any
+          information.
+        </p>
+      </section>
+
+      <section>
+        <h2>Children's Privacy</h2>
+        <p>
+          Because we do not collect any data, the App is safe for users of all ages, including children
+          under the age of 13 (or 16 in the European Economic Area). We do not knowingly collect personal
+          information from children or anyone else.
+        </p>
+      </section>
+
+      <section>
+        <h2>Data Security</h2>
+        <p>
+          Since we do not collect or store any user data on our servers, there is no risk of your personal
+          information being accessed, disclosed, or compromised through our systems. All game data remains
+          on your local device and is subject to your device's security measures.
+        </p>
+      </section>
+
+      <section>
+        <h2>Your Rights</h2>
+        <p>
+          Under the General Data Protection Regulation (GDPR) and other applicable privacy laws, you have
+          certain rights regarding your personal data. However, since we do not collect, process, or store
+          any personal data, these rights do not apply to our App:
+        </p>
+        <ul>
+          <li>Right to access</li>
+          <li>Right to rectification</li>
+          <li>Right to erasure</li>
+          <li>Right to restrict processing</li>
+          <li>Right to data portability</li>
+          <li>Right to object</li>
+        </ul>
+        <p>
+          If you delete the App from your device, all locally stored game data will be removed according
+          to your device's operating system.
+        </p>
+      </section>
+
+      <section>
+        <h2>International Data Transfers</h2>
+        <p>We do not transfer any data internationally because we do not collect any data.</p>
+      </section>
+
+      <section>
+        <h2>Changes to This Privacy Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time to reflect changes in our practices or for
+          other operational, legal, or regulatory reasons. Any changes will be posted within the App and
+          will become effective immediately upon posting. We encourage you to review this Privacy Policy
+          periodically.
+        </p>
+        <p>The "Last Updated" date at the top of this policy indicates when it was last revised.</p>
+      </section>
+
+      <section>
+        <h2>Contact Us</h2>
+        <p>If you have any questions or concerns about this Privacy Policy or our privacy practices, please contact us at:</p>
+        <div class="contact-box">
+          <p><strong>Mosaik Digital Kft.</strong></p>
+          <p>Address: 1126 Budapest, Királyhágó utca 5/A 3. em. 1B. ajtó, Hungary</p>
+          <p>Email: <a href="mailto:info@mosaik.hu">info@mosaik.hu</a></p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Governing Law</h2>
+        <p>
+          This Privacy Policy is governed by and construed in accordance with the laws of Hungary. Any
+          disputes relating to this Privacy Policy shall be subject to the exclusive jurisdiction of the
+          courts of Hungary.
+        </p>
+      </section>
+
+      <hr />
+
+      <p class="acknowledgment">
+        By using Knight's Gambit, you acknowledge that you have read and understood this Privacy Policy.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .privacy {
+    max-width: 900px;
+    margin-inline: auto;
+    padding-block-start: var(--sp-xl);
+    padding-block-end: var(--sp-xl);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-theme);
+    margin-block-start: 0;
+    margin-block-end: var(--sp-l);
+    text-align: center;
+  }
+
+  .meta {
+    text-align: center;
+    margin-block-end: var(--sp-xl);
+    padding: var(--sp-m);
+    background: color-mix(in srgb, var(--color-theme) 5%, transparent);
+    border-radius: 0.5em;
+  }
+
+  .meta p {
+    margin: var(--sp-xs) 0;
+    font-size: 0.95rem;
+  }
+
+  .content {
+    line-height: 1.8;
+  }
+
+  section {
+    margin-block-end: var(--sp-xl);
+  }
+
+  section:last-of-type {
+    margin-block-end: var(--sp-l);
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    color: var(--color-theme);
+    margin-block-start: var(--sp-l);
+    margin-block-end: var(--sp-m);
+  }
+
+  p {
+    margin-block-start: 0;
+    margin-block-end: var(--sp-m);
+    opacity: 0.9;
+    font-size: 1.05rem;
+  }
+
+  p:last-child {
+    margin-block-end: 0;
+  }
+
+  .highlight {
+    padding: var(--sp-m);
+    background: color-mix(in srgb, var(--color-theme) 8%, transparent);
+    border-inline-start: 4px solid var(--color-theme);
+    border-radius: 0 0.5em 0.5em 0;
+    font-size: 1.1rem;
+  }
+
+  ul {
+    margin-block-start: var(--sp-m);
+    margin-block-end: var(--sp-m);
+    padding-inline-start: var(--sp-l);
+  }
+
+  li {
+    margin-block-end: var(--sp-s);
+    opacity: 0.9;
+  }
+
+  li:last-child {
+    margin-block-end: 0;
+  }
+
+  .company-info {
+    list-style: none;
+    padding: 0;
+  }
+
+  .company-info li {
+    padding: var(--sp-s) 0;
+  }
+
+  .contact-box {
+    margin-block-start: var(--sp-m);
+    padding: var(--sp-l);
+    background: color-mix(in srgb, var(--color-theme) 4%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-theme) 12%, transparent);
+    border-radius: 0.5em;
+  }
+
+  .contact-box p {
+    margin: var(--sp-xs) 0;
+  }
+
+  .contact-box a {
+    color: var(--color-theme);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .contact-box a:hover {
+    text-decoration: underline;
+  }
+
+  hr {
+    margin-block: var(--sp-xl);
+    border: none;
+    border-top: 1px solid color-mix(in srgb, var(--color-theme) 20%, transparent);
+  }
+
+  .acknowledgment {
+    text-align: center;
+    font-style: italic;
+    opacity: 0.8;
+  }
+
+  strong {
+    color: var(--color-main);
+    font-weight: 600;
+  }
+</style>

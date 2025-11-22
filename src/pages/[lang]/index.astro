@@ -4,12 +4,6 @@ import Layout from "@/layouts/Base.astro";
 const t = useTranslations(Astro.currentLocale as Lang);
 import { getRelativeLocaleUrl } from "astro:i18n";
 
-import heroImageAr from "@/assets/ar/hero.svg";
-import heroImageEn from "@/assets/en/hero.svg";
-import heroImageJa from "@/assets/ja/hero.svg";
-import heroImageZhCn from "@/assets/zh-cn/hero.svg";
-import { Image } from "astro:assets";
-
 const locale = Astro.currentLocale as Lang;
 
 export const getStaticPaths = () =>
@@ -19,201 +13,250 @@ export const getStaticPaths = () =>
 ---
 
 <Layout>
-  <Image
-    src={locale === "ja"
-      ? heroImageJa
-      : locale === "zh-cn"
-        ? heroImageZhCn
-        : locale === "ar"
-          ? heroImageAr
-          : heroImageEn}
-    alt={t({
-      ja: "こんにちは",
-      en: "Hello",
-      "zh-cn": "你好",
-      ar: "مرحبًا",
-    })}
-    loading="eager"
-  />
-
-  <p>
-    <em>
+  <section class="hero">
+    <h1>
       {
         t({
-          ja: "i18n Starter は多言語対応サイトを作成するためのシンプルな Astro theme です。Astro v4.0からのi18n機能に対応しています。",
-          en: "i18n Starter is a simple Astro theme for creating multilingual websites. It supports i18n feature from Astro v4.0.",
-          "zh-cn":
-            "i18n Starter 是一个用于创建多语言网站的简单 Astro 主题。它支持 Astro v4.0 的 i18n 功能。",
-          ar: "i18n Starter هو موضوع Astro بسيط لإنشاء مواقع الويب متعددة اللغات.يدعم ميزة i18n من Astro v4.0.",
+          ja: "デジタルの未来を創造する",
+          en: "Crafting Digital Futures",
+          "zh-cn": "打造数字未来",
+          ar: "صياغة المستقبل الرقمي",
         })
       }
-    </em>
-  </p>
-
-  <p>
-    <a
-      href={`https://docs.astro.build/${locale}/guides/internationalization/`}
-      target="_blank"
-    >
-      Internationalization (i18n) Routing | Astro Docs
-      <span class="material-icons-sharp dir">open_in_new</span>
-    </a>
-  </p>
-
-  <p>
-    {
-      t({
-        ja: "基本的にサブディレクトリ方式のURLのみサポートしています。言語ごとに以下のようなURLで管理されます。ルートURLは指定したデフォルト言語にリダイレクトされます。",
-        en: "Basically, only the subdirectory URL scheme is supported. It is managed by the URL as follows for each language. The root URL is redirected to the specified default language.",
-        "zh-cn":
-          "基本上，只支持子目录 URL 方案。 它由以下 URL 为每种语言进行管理。 根 URL 将重定向到指定的默认语言。",
-        ar: "أساساً، يتم دعم نظام URL الفرعي فقط. يتم إدارتها من خلال URL كما يلي لكل لغة. يتم توجيه عنوان URL الجذري إلى اللغة الافتراضية المحددة.",
-      })
-    }
-  </p>
-
-  <ul>
-    <li>example.com/en/</li>
-    <li>example.com/ja/</li>
-  </ul>
-
-  <h2>
-    {
-      t({
-        ja: "特徴",
-        en: "Feature",
-        "zh-cn": "特点",
-        ar: "ميزة",
-      })
-    }
-  </h2>
-
-  <ul>
-    <li>
+    </h1>
+    <p class="hero-subtitle">
       {
         t({
-          ja: "Astro公式のi18n機能をサポート",
-          en: "support for Astro's official i18n feature",
-          "zh-cn": "支持 Astro 官方的 i18n 功能",
-          ar: "دعم لميزة i18n الرسمية لـ Astro",
+          ja: "革新的なウェブソリューションで、あなたのビジョンを実現します",
+          en: "Transforming your vision into innovative web solutions",
+          "zh-cn": "将您的愿景转化为创新的网络解决方案",
+          ar: "تحويل رؤيتك إلى حلول ويب مبتكرة",
         })
       }
-    </li>
-    <li>
+    </p>
+    <a href={getRelativeLocaleUrl(locale, "contact")} class="cta-button">
       {
         t({
-          ja: "多言語ページの様々な管理方法",
-          en: "Various management methods for multilingual pages",
-          "zh-cn": "多语言页面的各种管理方法",
-          ar: "طرق إدارة متعددة للصفحات متعددة اللغات",
-        })
-      }
-    </li>
-    <li>Vanilla CSS</li>
-    <li>
-      {
-        t({
-          ja: "SEOフレンドリー",
-          en: "SEO friendly",
-          "zh-cn": "SEO 友好",
-          ar: "SEO ودية",
-        })
-      }
-    </li>
-    <li>
-      {
-        t({
-          en: "100/100 Lighthouse performance",
-          ja: "100/100 Lighthouse スコア",
-          "zh-cn": "100/100 Lighthouse 性能",
-          ar: "أداء Lighthouse 100/100",
-        })
-      }
-    </li>
-  </ul>
-
-  <h2>
-    {
-      t({
-        en: "Getting Started",
-        ja: "はじめに",
-        "zh-cn": "入门指南",
-        ar: "البدء",
-      })
-    }
-  </h2>
-
-  <p>
-    {
-      t({
-        ja: "Astroの基本的な知識を前提とします。",
-        en: "Assumes basic knowledge of Astro.",
-        "zh-cn": "假设您具有 Astro 的基本知识。",
-        ar: "يفترض المعرفة الأساسية بـ Astro.",
-      })
-    }
-  </p>
-
-  <p>
-    <a href="https://docs.astro.build/" target="_blank">
-      https://docs.astro.build/
-      <span class="material-icons-sharp dir">open_in_new</span>
-    </a>
-  </p>
-
-  <p>
-    {
-      t({
-        ja: "大丈夫な方は、さっそく初めましょう！",
-        en: "If you're okay, let's get started!",
-        "zh-cn": "如果您没问题，让我们开始吧！",
-        ar: "إذا كنت على ما يرام، دعنا نبدأ!",
-      })
-    }
-  </p>
-
-  <p>
-    <a href={getRelativeLocaleUrl(locale, "setup")} class="start">
-      <span class="material-icons-sharp dir">arrow_forward</span>
-      {
-        t({
-          ja: "設定を開始",
-          en: "Start Setup",
-          "zh-cn": "开始设置",
-          ar: "ابدأ الإعداد",
+          ja: "お問い合わせ",
+          en: "Get in Touch",
+          "zh-cn": "联系我们",
+          ar: "اتصل بنا",
         })
       }
     </a>
-  </p>
+  </section>
+
+  <section class="services">
+    <h2>
+      {
+        t({
+          ja: "サービス",
+          en: "Our Services",
+          "zh-cn": "我们的服务",
+          ar: "خدماتنا",
+        })
+      }
+    </h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <span class="material-icons-sharp">code</span>
+        <h3>
+          {
+            t({
+              ja: "ウェブ開発",
+              en: "Web Development",
+              "zh-cn": "网页开发",
+              ar: "تطوير الويب",
+            })
+          }
+        </h3>
+        <p>
+          {
+            t({
+              ja: "最新技術を駆使した高性能なウェブサイトとアプリケーションの構築",
+              en: "Building high-performance websites and applications with cutting-edge technologies",
+              "zh-cn": "使用尖端技术构建高性能网站和应用程序",
+              ar: "بناء مواقع وتطبيقات عالية الأداء باستخدام أحدث التقنيات",
+            })
+          }
+        </p>
+      </div>
+
+      <div class="service-card">
+        <span class="material-icons-sharp">palette</span>
+        <h3>
+          {
+            t({
+              ja: "デザイン",
+              en: "Design",
+              "zh-cn": "设计",
+              ar: "التصميم",
+            })
+          }
+        </h3>
+        <p>
+          {
+            t({
+              ja: "ユーザー体験を重視した美しく機能的なデザイン",
+              en: "Beautiful and functional designs that prioritize user experience",
+              "zh-cn": "优先考虑用户体验的美观实用设计",
+              ar: "تصاميم جميلة وعملية تعطي الأولوية لتجربة المستخدم",
+            })
+          }
+        </p>
+      </div>
+
+      <div class="service-card">
+        <span class="material-icons-sharp">rocket_launch</span>
+        <h3>
+          {
+            t({
+              ja: "デジタル戦略",
+              en: "Digital Strategy",
+              "zh-cn": "数字策略",
+              ar: "الاستراتيجية الرقمية",
+            })
+          }
+        </h3>
+        <p>
+          {
+            t({
+              ja: "ビジネス成長を加速させる包括的なデジタル戦略の立案",
+              en: "Comprehensive digital strategies that accelerate business growth",
+              "zh-cn": "加速业务增长的综合数字战略",
+              ar: "استراتيجيات رقمية شاملة تسرع نمو الأعمال",
+            })
+          }
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>
+      {
+        t({
+          ja: "私たちについて",
+          en: "About Us",
+          "zh-cn": "关于我们",
+          ar: "معلومات عنا",
+        })
+      }
+    </h2>
+    <p>
+      {
+        t({
+          ja: "Mosaik Digitalは、クリエイティビティとテクノロジーを融合させ、お客様のビジネスに価値をもたらすデジタルエージェンシーです。",
+          en: "Mosaik Digital is a creative digital agency that brings together creativity and technology to deliver value to your business.",
+          "zh-cn": "Mosaik Digital是一家创意数字机构，融合创意和技术，为您的业务带来价值。",
+          ar: "Mosaik Digital هي وكالة رقمية إبداعية تجمع بين الإبداع والتكنولوجيا لتقديم القيمة لعملك.",
+        })
+      }
+    </p>
+  </section>
 </Layout>
 
 <style>
-  ul {
-    margin-block-start: var(--sp-s);
-    list-style: disc;
-    padding-inline-start: 1em;
+  .hero {
+    text-align: center;
+    padding: var(--sp-xl) 0;
+    margin-block-end: var(--sp-xl);
   }
 
-  h2 {
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
     color: var(--color-theme);
+    margin-block-end: var(--sp-m);
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    margin-block-end: var(--sp-l);
+    color: var(--color-main);
+    opacity: 0.9;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1em 2em;
+    background: var(--color-theme);
+    color: var(--color-base);
+    text-decoration: none;
+    border-radius: 0.5em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .services {
+    margin-block: var(--sp-xl);
+    margin-top: 120px;
+  }
+
+  .services h2,
+  .about h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--color-theme);
+    text-align: center;
+    margin-block-end: var(--sp-l);
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--sp-l);
     margin-block-start: var(--sp-l);
   }
 
-  em {
+  .service-card {
+    padding: var(--sp-l);
+    border-radius: 1em;
+    background: color-mix(in srgb, var(--color-theme) 5%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-theme) 15%, transparent);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .service-card .material-icons-sharp {
+    font-size: 3rem;
+    color: var(--color-theme);
     display: block;
-    font-style: normal;
-    font-size: 1.3em;
     margin-block-end: var(--sp-m);
   }
 
-  .start {
-    display: block;
-    width: fit-content;
-    padding: 0.5em;
-    border-radius: 0.5em;
-    background: var(--color-main);
-    color: var(--color-base);
-    text-decoration: none;
-    letter-spacing: 0.05em;
+  .service-card h3 {
+    font-size: 1.4rem;
+    margin-block-end: var(--sp-s);
+    color: var(--color-main);
+  }
+
+  .service-card p {
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  .about {
+    margin-block: var(--sp-xl);
+    text-align: center;
+    max-width: 1200px;
+    margin-inline: auto;
+    margin-top: 120px;
+  }
+
+  .about p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    opacity: 0.9;
   }
 </style>

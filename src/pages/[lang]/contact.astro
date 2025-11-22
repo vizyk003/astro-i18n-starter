@@ -1,0 +1,153 @@
+---
+import { LOCALES, useTranslations, type Lang } from "@/i18n";
+import Layout from "@/layouts/Base.astro";
+const t = useTranslations(Astro.currentLocale as Lang);
+
+const locale = Astro.currentLocale as Lang;
+
+export const getStaticPaths = () =>
+  Object.keys(LOCALES).map((lang) => ({
+    params: { lang },
+  }));
+---
+
+<Layout title={t({ ja: "お問い合わせ", en: "Contact", "zh-cn": "联系我们", ar: "اتصل بنا" })}>
+  <section class="contact">
+    <h1>
+      {
+        t({
+          ja: "お問い合わせ",
+          en: "Get in Touch",
+          "zh-cn": "联系我们",
+          ar: "اتصل بنا",
+        })
+      }
+    </h1>
+    <p class="intro">
+      {
+        t({
+          ja: "プロジェクトのご相談やお見積もりなど、お気軽にお問い合わせください。",
+          en: "Have a project in mind? We'd love to hear from you. Get in touch for a consultation or quote.",
+          "zh-cn": "有项目想法吗？我们很乐意听取您的意见。联系我们进行咨询或报价。",
+          ar: "لديك مشروع في الاعتبار؟ نود أن نسمع منك. اتصل بنا للحصول على استشارة أو عرض أسعار.",
+        })
+      }
+    </p>
+
+    <div class="contact-info">
+      <div class="info-card">
+        <span class="material-icons-sharp">email</span>
+        <h3>Email</h3>
+        <p>hello@mosaikdigital.com</p>
+      </div>
+
+      <div class="info-card">
+        <span class="material-icons-sharp">phone</span>
+        <h3>
+          {
+            t({
+              ja: "電話",
+              en: "Phone",
+              "zh-cn": "电话",
+              ar: "هاتف",
+            })
+          }
+        </h3>
+        <p>+1 (555) 123-4567</p>
+      </div>
+
+      <div class="info-card">
+        <span class="material-icons-sharp">location_on</span>
+        <h3>
+          {
+            t({
+              ja: "所在地",
+              en: "Location",
+              "zh-cn": "地点",
+              ar: "موقع",
+            })
+          }
+        </h3>
+        <p>
+          {
+            t({
+              ja: "世界中どこでも",
+              en: "Worldwide",
+              "zh-cn": "全球",
+              ar: "في جميع أنحاء العالم",
+            })
+          }
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact {
+    max-width: 1000px;
+    margin-inline: auto;
+    text-align: center;
+    padding-block-start: var(--sp-xl);
+    padding-block-end: var(--sp-xl);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-theme);
+    margin-block-start: 0;
+    margin-block-end: var(--sp-l);
+  }
+
+  .intro {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-block-start: 0;
+    margin-block-end: var(--sp-xl);
+    opacity: 0.9;
+    max-width: 700px;
+    margin-inline: auto;
+  }
+
+  .contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--sp-l);
+    margin-block-start: var(--sp-xl);
+  }
+
+  .info-card {
+    padding: var(--sp-xl) var(--sp-l);
+    border-radius: 1em;
+    background: color-mix(in srgb, var(--color-theme) 4%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-theme) 12%, transparent);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .info-card .material-icons-sharp {
+    font-size: 2.8rem;
+    color: var(--color-theme);
+    display: block;
+    margin-block-end: var(--sp-m);
+  }
+
+  .info-card h3 {
+    font-size: 1.2rem;
+    margin-block-start: 0;
+    margin-block-end: var(--sp-s);
+    color: var(--color-theme);
+    font-weight: 600;
+  }
+
+  .info-card p {
+    opacity: 0.85;
+    font-size: 1.05rem;
+    margin: 0;
+    line-height: 1.5;
+  }
+</style>

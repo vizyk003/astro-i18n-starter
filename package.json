@@ -1,10 +1,10 @@
 {
-	"name": "astro-i18n-starter",
-	"description": "A starter for Astro with i18n support",
-	"version": "3.0.1",
-	"private": false,
+	"name": "mosaik-digital",
+	"description": "Mosaik Digital - Creative Digital Agency",
+	"version": "1.0.0",
+	"private": true,
 	"license": "MIT",
-	"homepage": "https://astro-i18n-starter.pages.dev/",
+	"homepage": "https://mosaikdigital.com/",
 	"engines": {
 		"node": ">=20"
 	},
